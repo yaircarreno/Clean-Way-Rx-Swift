@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import RxSwift
 
 class ViewController: UIViewController {
 
+    private let network = Network()
+    private let cache = Cache()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let item = Item3()
+        item.itemExample()
     }
-
-
 }
-
