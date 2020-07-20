@@ -15,7 +15,7 @@ class Item29 {
     let disposeBag = DisposeBag()
 
     public func itemExample() {
-        case4()
+        case1()
     }
 
     private func case1() {
@@ -131,11 +131,12 @@ class Item29 {
                 return Observable.just("Request to API C with userId = \(id)")}
             .take(1)
 
-        Observable.merge(observableA, observableB, observableC)
+        let subscription = Observable.merge(observableA, observableB, observableC)
             .subscribe(onNext: { result in
                 print(result)
             })
-            .disposed(by: disposeBag)
 
+        Thread.sleep(forTimeInterval: 5.0)
+        subscription.dispose()
     }
 }
